@@ -19,14 +19,14 @@ class TestGenerateSnapshot:
     """Tests for generate_snapshot()."""
 
     def test_empty_journal_no_file(self, tmp_path: Path) -> None:
-        """When the journal file does not exist, returns 'Nenhuma demanda encontrada'."""
+        """When journal file missing, returns 'Nenhuma demanda encontrada'."""
         journal_path = str(tmp_path / "nonexistent.jsonl")
         result = generate_snapshot(journal_path)
         assert "# Snapshot do Journal" in result
         assert "Nenhuma demanda encontrada" in result
 
     def test_empty_journal_file_exists(self, tmp_path: Path) -> None:
-        """When the journal file is empty, returns 'Nenhuma demanda encontrada'."""
+        """Empty journal returns 'Nenhuma demanda encontrada'."""
         journal_path = str(tmp_path / "journal.jsonl")
         with open(journal_path, "w") as f:
             f.write("")
@@ -51,7 +51,7 @@ class TestGenerateSnapshot:
         assert "agente-x" in result
 
     def test_mixed_statuses(self, tmp_path: Path) -> None:
-        """Entries with different statuses are grouped in the correct sections."""
+        """Entries with different statuses are in correct sections."""
         now = datetime.now(UTC)
         entries = [
             JournalEntry(
@@ -114,7 +114,10 @@ class TestGenerateSnapshot:
         """Only completed entries omit active/failed sections."""
         now = datetime.now(UTC)
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="completed", desc="Feita", summary="Ok"),
+            JournalEntry(
+                id="DEM-001", ts=now, status="completed",
+                desc="Feita", summary="Ok",
+            ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 
@@ -127,7 +130,10 @@ class TestGenerateSnapshot:
         """Only active entries omit completed/failed sections."""
         now = datetime.now(UTC)
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="processing", desc="Ativa"),
+            JournalEntry(
+                id="DEM-001", ts=now, status="processing",
+                desc="Ativa",
+            ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 
@@ -173,8 +179,14 @@ class TestGenerateSnapshot:
         """Active table has proper header, separator, and data rows."""
         now = datetime.now(UTC)
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="processing", desc="Teste", agent="agente-x"),
-            JournalEntry(id="DEM-002", ts=now, status="delegated",  desc="Outro", agent="agente-y"),
+            JournalEntry(
+                id="DEM-001", ts=now, status="processing",
+                desc="Teste", agent="agente-x",
+            ),
+            JournalEntry(
+                id="DEM-002", ts=now, status="delegated",
+                desc="Outro", agent="agente-y",
+            ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 
@@ -194,7 +206,7 @@ class TestGenerateSnapshot:
         assert "#DEM-002" in lines[table_idx + 3]
 
     def test_pipe_escaping_in_desc(self, tmp_path: Path) -> None:
-        """Pipe characters in descriptions are escaped with backslash in tables."""
+        """Pipe chars in descriptions are escaped in tables."""
         now = datetime.now(UTC)
         entries = [
             JournalEntry(id="DEM-001", ts=now, status="processing",
@@ -208,7 +220,10 @@ class TestGenerateSnapshot:
         """Snapshot includes an ISO-formatted generation timestamp."""
         now = datetime.now(UTC)
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="processing", desc="Teste"),
+            JournalEntry(
+                id="DEM-001", ts=now, status="processing",
+                desc="Teste",
+            ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 
@@ -233,7 +248,10 @@ class TestGenerateSnapshot:
         """Blocked status is grouped with failed/interrupted in 'Problemas'."""
         now = datetime.now(UTC)
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="blocked", desc="Bloqueada"),
+            JournalEntry(
+                id="DEM-001", ts=now, status="blocked",
+                desc="Bloqueada",
+            ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 
@@ -251,7 +269,7 @@ class TestGenerateSnapshot:
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 
         result = generate_snapshot(str(tmp_path / "journal.jsonl"))
-        # When summary is None, the code uses "" which is then [:80] -> "" -> shown as empty
+        # None summary resolves to "" then [:80] -> "" -> shown as empty
         # The table still renders correctly
         assert "Tarefa sem resumo" in result
 

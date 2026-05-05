@@ -32,7 +32,9 @@ class TestDetectProject:
         """Hermes Terminal keywords should detect hermes-terminal."""
         assert detect_project("hermes terminal") == "hermes-terminal"
         assert detect_project("terminal app") == "hermes-terminal"
-        assert detect_project("dashboard de monitoramento") == "hermes-terminal"
+        assert detect_project("dashboard de monitoramento") == (
+            "hermes-terminal"
+        )
         assert detect_project("chat bot") == "hermes-terminal"
 
     def test_detect_hermes_agent_soul(self) -> None:
@@ -55,11 +57,19 @@ class TestDetectProject:
 
     def test_detect_hermes_orchestrator(self) -> None:
         """Orchestrator keywords should detect hermes-demand-orchestrator."""
-        assert detect_project("orquestrador de demandas") == "hermes-demand-orchestrator"
+        assert detect_project("orquestrador de demandas") == (
+            "hermes-demand-orchestrator"
+        )
         assert detect_project("orchestrator") == "hermes-demand-orchestrator"
-        assert detect_project("demanda urgente") == "hermes-demand-orchestrator"
-        assert detect_project("demand pipeline") == "hermes-demand-orchestrator"
-        assert detect_project("write-ahead log") == "hermes-demand-orchestrator"
+        assert detect_project("demanda urgente") == (
+            "hermes-demand-orchestrator"
+        )
+        assert detect_project("demand pipeline") == (
+            "hermes-demand-orchestrator"
+        )
+        assert detect_project("write-ahead log") == (
+            "hermes-demand-orchestrator"
+        )
         assert detect_project("cascade") == "hermes-demand-orchestrator"
         assert detect_project("journal") == "hermes-demand-orchestrator"
 
@@ -101,11 +111,11 @@ class TestDetectProject:
         ],
     )
     def test_longest_keyword_wins(self, desc: str, expected: str) -> None:
-        """When multiple keywords match across projects, the longest one wins."""
+        """When multiple keywords match, the longest wins."""
         assert detect_project(desc) == expected
 
     def test_word_boundary_matching(self) -> None:
-        """Keywords should match only as whole words via \\b regex boundaries."""
+        """Keywords match as whole words via \\b regex boundaries."""
         # "terminal" should NOT match inside "determinall" (no word boundary)
         assert detect_project("determinall") is None
         # "khem" should NOT match inside "khemistry"
