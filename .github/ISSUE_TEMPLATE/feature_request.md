@@ -1,23 +1,24 @@
 ---
 name: Feature Request
-about: Sugira uma ideia para este projeto
+about: Sugira uma funcionalidade para o Hermes Demand Orchestrator
 title: "[FEATURE] "
 labels: enhancement
-assignees: tiagohanna
-
 ---
 
-**Sua sugestão está relacionada a um problema? Descreva.**
-Uma descrição clara e concisa do problema. Ex: "Fico frustrado quando..."
+## Problema
+Descreva o problema que esta feature resolveria. Seja específico.
 
-**Descreva a solução ideal**
-Uma descrição clara e concisa do que você quer que aconteça.
+## Solução proposta
+Descreva como você imagina a solução ideal.
 
-**Descreva alternativas consideradas**
-Uma descrição clara de soluções ou funcionalidades alternativas que você considerou.
+## Alternativas consideradas
+Outras abordagens que você considerou.
 
-**Impacto no ecossistema**
-Como esta feature se relaciona com outros componentes? (Hermes Agent, kanban, dashboard?)
+## Exemplo de uso
+```bash
+# Como você imaginaria usar essa feature?
+hermes-orq <novo-comando> --algum-argumento
+```
 
-**Contexto adicional**
-Adicione qualquer contexto, screenshots ou exemplos aqui.
+## Contexto adicional
+Adicione qualquer outro contexto, referências ou screenshots.

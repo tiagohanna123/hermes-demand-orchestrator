@@ -1,22 +1,28 @@
-## Checklist do Contribuidor
+---
+name: Pull Request
+about: Envie contribuição para o Hermes Demand Orchestrator
+title: ""
+---
 
-- [ ] Testes passam localmente: `make test`
-- [ ] Linters aprovam: `make lint-all`
-- [ ] Cobertura >= 90%
-- [ ] Código segue o padrão do projeto (PEP 8, type hints)
-- [ ] Commits seguem [Conventional Commits](https://www.conventionalcommits.org/)
+## Mudanças propostas
 
-## Descrição
+Descreva de forma clara e concisa as mudanças realizadas.
 
-Descreva suas mudanças de forma clara e objetiva. Inclua:
+## Tipo de mudança
 
-- O que foi alterado e por quê
-- Como testar as mudanças
-- Issues relacionadas (se houver)
+- [ ] Bug fix
+- [ ] Nova feature
+- [ ] Refatoração
+- [ ] Documentação
+- [ ] CI / Tooling
 
-## Tipo de Mudança
+## Quality Gate
 
-- [ ] Bug fix (correção)
-- [ ] Nova feature (melhoria não-breaking)
-- [ ] Breaking change (requer adaptação)
-- [ ] Documentation only
+- [ ] `make all` passa localmente
+- [ ] Testes existentes continuam passando
+- [ ] Testes novos cobrem as mudanças (se aplicável)
+- [ ] CHANGELOG atualizado (se aplicável)
+
+## Issues relacionadas
+
+Closes #

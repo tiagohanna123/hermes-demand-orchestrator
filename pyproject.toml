@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "hermes-demand-orchestrator"
-version = "0.1.0"
+version = "0.2.0"
 description = "Orquestrador de Demandas — write-ahead log, swarm cascade, preflight classifier, multi-project router"
 readme = "README.md"
 license = "MIT"
@@ -113,7 +113,11 @@ warn_return_any = true
 warn_unused_ignores = true
 strict_optional = true
 check_untyped_defs = true
-exclude = [".venv", "dist", "build", "tests"]
+exclude = [".venv", "dist", "build"]
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
 
 [tool.isort]
 profile = "black"

@@ -7,6 +7,44 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
+## [0.2.0] — 2026-05-05
+
+### Adicionado
+
+- **CI/CD** — GitHub Actions workflows completos
+  - Workflow `test.yml`: matrix Python 3.11/3.12/3.13 com lint + typecheck + coverage + build
+  - Workflow `release.yml`: PyPI (trusted publishing) + GitHub Release com changelog
+- **Issue/PR templates** — Bug report, feature request, pull request
+- **docs/ARCHITECTURE.md** — Documentação completa da arquitetura (3 camadas, fluxo, módulos, CLI)
+- **215 testes** — 100% coverage, flake8 0, ruff 0, mypy strict 0
+
+### Melhorado
+
+- Número de testes saltou de 175 para 215 (+23%)
+- Cobertura subiu de 96% para 100%
+- Build CI verifica que o pacote instala corretamente via pip
+
+## [0.2.0] — 2026-05-05
+
+### Adicionado
+
+- **Mypy strict nos testes** — cobertura de type checking expandida para o diretório `tests/` com override para `disallow_untyped_defs`
+- **216 testes** — +1 teste para normalização de timestamp naive
+
+### Corrigido
+
+- **40 erros de ruff** — UP017 (timezone.utc → UTC), E501 (linhas longas), S108 (tmp_path), I001 (import sorting), F401 (unused import), B018 (useless expression)
+- **Cobertura 100%** — linha 55 do journal.py (naive timestamp normalization) agora testada
+- **Mypy lint** — `# type: ignore[arg-type]` obsoleto removido do test_journal.py
+
+### Melhorado
+
+- **Ruff limpo**: 0 erros, 0 warnings
+- **Mypy src/ strict**: 0 erros (7 arquivos)
+- **Mypy tests/**: 0 erros (7 arquivos)
+- **Cobertura**: 100% (208/208 statements)
+- **Build**: sdist + wheel sem warnings
+
 ## [0.1.0] — 2025-05-05
 
 ### Adicionado

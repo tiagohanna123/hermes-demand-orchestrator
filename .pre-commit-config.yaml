@@ -24,5 +24,6 @@ repos:
     rev: v1.10.0
     hooks:
       - id: mypy
-        args: [src/hermes_demand_orchestrator/]
-        additional_dependencies: []
+        args: [--explicit-package-bases, src/hermes_demand_orchestrator/]
+        additional_dependencies: [types-PyYAML]
+        pass_filenames: false

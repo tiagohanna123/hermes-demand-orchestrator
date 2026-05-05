@@ -1,33 +1,29 @@
 ---
 name: Bug Report
-about: Crie um relatório de bug para nos ajudar a melhorar
+about: Reporte um bug no Hermes Demand Orchestrator
 title: "[BUG] "
 labels: bug
-assignees: tiagohanna
-
 ---
 
-**Descrição do bug**
-Uma descrição clara e concisa do bug.
+## Descrição
+Uma descrição clara e objetiva do bug.
 
-**Para reproduzir**
-Passos para reproduzir:
-1. Execute '...'
-2. Com o argumento '...'
-3. Veja o erro
+## Passos para reproduzir
+1. Execute `...`
+2. Veja o erro `...`
 
-**Comportamento esperado**
-Uma descrição clara do que deveria acontecer.
+## Comportamento esperado
+O que deveria acontecer.
 
-**Logs/Saída**
-```
-Cole aqui qualquer saída de erro relevante.
-```
+## Comportamento atual
+O que realmente acontece.
 
-**Ambiente:**
-- Python version: [e.g. 3.11]
-- OS: [e.g. Ubuntu 22.04, WSL2]
-- Versão do pacote: [e.g. 0.1.0]
+## Ambiente
+- Python version:
+- OS:
+- hermes-demand-orchestrator version:
 
-**Contexto adicional**
-Adicione qualquer contexto adicional aqui.
+## Logs / Screenshots
+Cole aqui qualquer saída de erro ou log relevante.
+
+## Informações adicionais

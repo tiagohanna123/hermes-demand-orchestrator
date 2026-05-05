@@ -6,9 +6,9 @@ import pytest
 
 from hermes_demand_orchestrator.cascade import (
     CASCADE_WORDS,
-    CascadeDecision,
     DEEP_WORDS,
     DIRECT_WORDS,
+    CascadeDecision,
     classify_task,
 )
 

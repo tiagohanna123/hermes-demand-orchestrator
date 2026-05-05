@@ -4,7 +4,7 @@
 
 ---
 
-## v0.1.0 — Fundação (Lançada)
+## ✓ v0.1.0 — Fundação (Lançada)
 
 **Features:**
 - Journal append-only write-ahead log (JSONL)
@@ -12,40 +12,37 @@
 - Cascade decision engine
 - Snapshot generator (markdown report)
 - Router multi-projeto por keywords
-- CLI (`hermes-orq`) com comandos: `status`, `list`, `preflight`, `route`, `register`, `archive`, `snapshot`, `search`, `filter`, `shell-completion`
+- CLI (`hermes-orq`) com 10 comandos
 - Suporte bash/zsh completion
-- Compactação do journal (remover entradas intermediárias)
-- Arquitetura de agentes modulares
+- Compactação do journal
 
 ---
 
-## v0.2.0 — Persistência & Resiliência (ETA: Julho 2025)
+## ✓ v0.2.0 — Projeto Formal (Lançada)
 
 **Features:**
-- Backup automático do journal antes de compactação
-- Recuperação automática de journal corrompido
-- Journal com rotação de arquivos baseada em tamanho
-- Hooks pós-registro (notificações, gatilhos)
-- Métricas de desempenho básicas (tempo de classificação, volume de entradas)
-- Comando `hermes-orq archive --auto` com políticas configuráveis
-- Testes de integração para pipeline completo (registro → preflight → cascade)
+- GitHub Actions CI/CD (test matrix 3.11/3.12/3.13 + lint + typecheck + build)
+- Release workflow (PyPI trusted publishing + GitHub Release)
+- docs/ARCHITECTURE.md com diagrama 3 camadas
+- Issue/PR templates
+- 215 testes, 100% coverage, flake8 0, ruff 0, mypy strict 0
 
 ---
 
-## v0.3.0 — Integração & Observabilidade (ETA: Outubro 2025)
+## v0.3.0 — API & Observabilidade (ETA: Julho 2026)
 
 **Features:**
-- Export para formatos externos (JSON, CSV, HTML)
-- Integração com Hermes Broker para publicação de eventos
+- REST API (FastAPI) via dependência opcional `[api]`
+- SSE Event Bus para notificações em tempo real
+- Export JSON/CSV
 - Dashboard web leve (modo read-only do journal)
-- Métricas Prometheus expostas via endpoint HTTP opcional
-- Comando `hermes-orq export` com filtros avançados
+- Métricas de desempenho (tempo de classificação, volume de entradas)
 - Logging estruturado (formato JSON)
 - Sistema de alertas por status (failed, blocked, interrupted)
 
 ---
 
-## v0.4.0 — Swarm & Delegação (ETA: Janeiro 2026)
+## v0.4.0 — Swarm & Delegação (ETA: Setembro 2026)
 
 **Features:**
 - Execução automática de cascade via subagentes reais
@@ -53,20 +50,16 @@
 - Priorização de demandas por urgência/impacto
 - Políticas de retry para tarefas com falha
 - Limpeza automática de demandas órfãs
-- Interoperabilidade com Hermes Agent Soul para tarefas multi-domínio
+- Hooks pós-registro (notificações, gatilhos)
 - Plugin system para provedores de execução (local, Docker, API)
 
 ---
 
-## v1.0.0 — Produção (ETA: Abril 2026)
+## v1.0.0 — Produção (ETA: Novembro 2026)
 
 **Features:**
-- API RESTful completa para integração externa
-- Autenticação e autorização via API key
 - Documentação completa (docs.hermes-agents.dev)
 - Helm chart para deploy Kubernetes
-- CI/CD pipeline completo com GitHub Actions
-- Cobertura de testes > 90%
 - Benchmarking e relatórios de performance
 - Modo cluster com Journal distribuído (etcd / NATS)
 - Suporte a plugins de terceiros via PyPI
@@ -85,4 +78,4 @@
 
 ---
 
-*Roadmap sujeito a alterações conforme feedback da comunidade e prioridades do projeto.*
+*Roadmap sujeito a alterações conforme feedback e prioridades do projeto.*
