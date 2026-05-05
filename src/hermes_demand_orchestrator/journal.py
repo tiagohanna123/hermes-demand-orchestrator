@@ -39,8 +39,10 @@ class JournalEntry:
         return json.dumps(d, ensure_ascii=False)
 
     @classmethod
-    def from_json(cls, line: str) -> JournalEntry | None:
+    def from_json(cls, line: str | None) -> JournalEntry | None:
         try:
+            if line is None:
+                return None
             d = json.loads(line.strip())
             if not isinstance(d, dict):
                 return None
@@ -64,7 +66,7 @@ class JournalEntry:
                 agent=str(d["agent"]) if "agent" in d else None,
                 summary=str(d["summary"]) if "summary" in d else None,
             )
-        except (json.JSONDecodeError, TypeError):
+        except (json.JSONDecodeError, TypeError, AttributeError):
             return None
 
 

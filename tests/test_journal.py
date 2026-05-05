@@ -165,10 +165,9 @@ class TestJournalEntrySerialization:
         """Linha vazia retorna None."""
         assert JournalEntry.from_json("") is None
 
-    def test_from_json_type_error(self) -> None:
-        """TypeError (ex.: None) não é tratado pela função (AttributeError)."""
-        with pytest.raises(AttributeError):
-            JournalEntry.from_json(None)
+    def test_from_json_none(self) -> None:
+        """None retorna None (tratamento explícito)."""
+        assert JournalEntry.from_json(None) is None
 
 
 # ─── write_entry / read_journal ────────────────────────────────────────
