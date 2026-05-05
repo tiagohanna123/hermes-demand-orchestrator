@@ -8,8 +8,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/python-3.11%20|%203.12%20|%203.13-blue" alt="Python">
-  <img src="https://img.shields.io/github/license/tiagohanna/hermes-demand-orchestrator" alt="License">
-  <img src="https://img.shields.io/pypi/v/hermes-demand-orchestrator" alt="PyPI">
+  <img src="https://img.shields.io/github/license/tiagohanna123/hermes-demand-orchestrator" alt="License">
 </p>
 
 ---
@@ -43,11 +42,8 @@ CLI (hermes-orq) → Journal (append-only JSONL)
 ## Instalação
 
 ```bash
-# Via pip
-pip install hermes-demand-orchestrator
-
-# Ou a partir do repositório
-git clone https://github.com/tiagohanna/hermes-demand-orchestrator.git
+# A partir do repositório
+git clone https://github.com/tiagohanna123/hermes-demand-orchestrator.git
 cd hermes-demand-orchestrator
 pip install -e ".[dev]"
 ```
@@ -167,7 +163,7 @@ GitHub Actions executa em cada push:
 - [x] Router multi-projeto por keywords
 - [x] Snapshot markdown do estado do journal
 - [x] CLI completa (register, list, status, preflight, route, archive, snapshot, search, filter, shell-completion)
-- [ ] Integração contínua com GitHub Actions
+- [x] Integração contínua com GitHub Actions
 - [ ] Web dashboard para visualização de demandas
 - [ ] Notificações via webhook (Slack, Discord)
 - [ ] Integração com provedores externos de IA (OpenAI, Claude)

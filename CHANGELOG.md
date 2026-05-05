@@ -7,24 +7,23 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-## [0.2.0] — 2026-05-05
+## [1.0.0] — 2026-05-05
 
 ### Adicionado
 
-- **CI/CD** — GitHub Actions workflows completos
-  - Workflow `test.yml`: matrix Python 3.11/3.12/3.13 com lint + typecheck + coverage + build
-  - Workflow `release.yml`: PyPI (trusted publishing) + GitHub Release com changelog
-- **Issue/PR templates** — Bug report, feature request, pull request
-- **docs/ARCHITECTURE.md** — Documentação completa da arquitetura (3 camadas, fluxo, módulos, CLI)
-- **215 testes** — 100% coverage, flake8 0, ruff 0, mypy strict 0
+- **Declaração de Production Readiness** — Projeto promovido a v1.0.0 estável
+- **216 testes** — 100% de cobertura em todos os módulos (src/ + tests/)
+- **Todos os quality gates** — flake8 0, ruff 0, mypy strict 0, cobertura 90%+
 
 ### Melhorado
 
-- Número de testes saltou de 175 para 215 (+23%)
-- Cobertura subiu de 96% para 100%
-- Build CI verifica que o pacote instala corretamente via pip
+- **Estabilidade** — Sem alterações de breaking change desde v0.2.1; base sólida para produção
+- **Documentação** — CHANGELOG e ROADMAP oficializados para rastreabilidade de versões
+- **Governança** — Política de versionamento semântico totalmente estabelecida
 
-## [0.2.0] — 2026-05-05
+---
+
+## [0.2.1] — 2026-05-05
 
 ### Adicionado
 
@@ -44,6 +43,25 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - **Mypy tests/**: 0 erros (7 arquivos)
 - **Cobertura**: 100% (208/208 statements)
 - **Build**: sdist + wheel sem warnings
+
+---
+
+## [0.2.0] — 2026-05-05
+
+### Adicionado
+
+- **CI/CD** — GitHub Actions workflows completos
+  - Workflow `test.yml`: matrix Python 3.11/3.12/3.13 com lint + typecheck + coverage + build
+  - Workflow `release.yml`: PyPI (trusted publishing) + GitHub Release com changelog
+- **Issue/PR templates** — Bug report, feature request, pull request
+- **docs/ARCHITECTURE.md** — Documentação completa da arquitetura (3 camadas, fluxo, módulos, CLI)
+- **215 testes** — 100% coverage, flake8 0, ruff 0, mypy strict 0
+
+### Melhorado
+
+- Número de testes saltou de 175 para 215 (+23%)
+- Cobertura subiu de 96% para 100%
+- Build CI verifica que o pacote instala corretamente via pip
 
 ## [0.1.0] — 2025-05-05
 
@@ -73,4 +91,7 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - **Testes** — Suíte de testes com pytest para todos os módulos principais
 - **Documentação inicial** — Docstrings e anotações de tipo em todo o código
 
+[1.0.0]: https://github.com/hermes-agents/hermes-demand-orchestrator/releases/tag/v1.0.0
+[0.2.1]: https://github.com/hermes-agents/hermes-demand-orchestrator/releases/tag/v0.2.1
+[0.2.0]: https://github.com/hermes-agents/hermes-demand-orchestrator/releases/tag/v0.2.0
 [0.1.0]: https://github.com/hermes-agents/hermes-demand-orchestrator/releases/tag/v0.1.0

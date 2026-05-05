@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "hermes-demand-orchestrator"
-version = "0.2.1"
+version = "1.0.0"
 description = "Orquestrador de Demandas — write-ahead log, swarm cascade, preflight classifier, multi-project router"
 readme = "README.md"
 license = "MIT"
@@ -13,7 +13,7 @@ authors = [
 ]
 keywords = ["orquestrador", "demanda", "write-ahead", "cascade", "agent", "workflow", "kanban"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -27,10 +27,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/tiagohanna/hermes-demand-orchestrator"
-Repository = "https://github.com/tiagohanna/hermes-demand-orchestrator"
-Issues = "https://github.com/tiagohanna/hermes-demand-orchestrator/issues"
-Documentation = "https://github.com/tiagohanna/hermes-demand-orchestrator#readme"
+Homepage = "https://github.com/tiagohanna123/hermes-demand-orchestrator"
+Repository = "https://github.com/tiagohanna123/hermes-demand-orchestrator"
+Issues = "https://github.com/tiagohanna123/hermes-demand-orchestrator/issues"
+Documentation = "https://github.com/tiagohanna123/hermes-demand-orchestrator#readme"
 
 [project.scripts]
 hermes-orq = "hermes_demand_orchestrator.__main__:main"

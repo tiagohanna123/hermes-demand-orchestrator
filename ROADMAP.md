@@ -1,10 +1,10 @@
 # Roadmap — Hermes Demand Orchestrator
 
-> Visão de evolução do projeto, da v0.1.0 à v1.0.0.
+> Visão de evolução do projeto, da v0.1.0 à v2.0.0+.
 
 ---
 
-## ✓ v0.1.0 — Fundação (Lançada)
+## ✅ v0.1.0 — Fundação (Lançada)
 
 **Features:**
 - Journal append-only write-ahead log (JSONL)
@@ -18,7 +18,7 @@
 
 ---
 
-## ✓ v0.2.0 — Projeto Formal (Lançada)
+## ✅ v0.2.0 — Projeto Formal (Lançada)
 
 **Features:**
 - GitHub Actions CI/CD (test matrix 3.11/3.12/3.13 + lint + typecheck + build)
@@ -29,7 +29,28 @@
 
 ---
 
-## v0.3.0 — API & Observabilidade (ETA: Julho 2026)
+## ✅ v0.2.1 — Qualidade & Correções (Lançada)
+
+**Features:**
+- Mypy strict estendido para testes
+- 216 testes, 100% cobertura
+- Ruff 0 erros, flake8 0 erros
+- Black formatação em 11 arquivos
+
+---
+
+## ✅ v1.0.0 — Produção (Versão Atual)
+
+**Features:**
+- 216 testes, 100% cobertura (src/ + tests/)
+- Todos os quality gates: flake8 0, ruff 0, mypy strict 0, cobertura 90%+
+- CHANGELOG e ROADMAP oficializados
+- Versionamento semântico estabelecido
+- Declaração de Production Readiness
+
+---
+
+## 🔜 v1.1.0 — API & Observabilidade (ETA: Julho 2026)
 
 **Features:**
 - REST API (FastAPI) via dependência opcional `[api]`
@@ -42,7 +63,7 @@
 
 ---
 
-## v0.4.0 — Swarm & Delegação (ETA: Setembro 2026)
+## 📋 v1.2.0 — Swarm & Delegação (ETA: Setembro 2026)
 
 **Features:**
 - Execução automática de cascade via subagentes reais
@@ -55,16 +76,16 @@
 
 ---
 
-## v1.0.0 — Produção (ETA: Novembro 2026)
+## 📋 v2.0.0 — Escalabilidade & Ecossistema (ETA: 2027)
 
 **Features:**
-- Documentação completa (docs.hermes-agents.dev)
 - Helm chart para deploy Kubernetes
-- Benchmarking e relatórios de performance
 - Modo cluster com Journal distribuído (etcd / NATS)
 - Suporte a plugins de terceiros via PyPI
 - Auditoria completa de operações
 - SLA monitoring e health check endpoints
+- Benchmarking e relatórios de performance
+- Documentação completa (docs.hermes-agents.dev)
 
 ---
 
