@@ -1,4 +1,5 @@
 """Tests for the Snapshot module — markdown journal report generator."""
+
 from __future__ import annotations
 
 from datetime import UTC, datetime
@@ -37,8 +38,11 @@ class TestGenerateSnapshot:
         """Single entry appears with header, count, and table row."""
         now = datetime.now(UTC)
         entry = JournalEntry(
-            id="DEM-001", ts=now, status="processing",
-            desc="Testar modulo snapshot", agent="agente-x",
+            id="DEM-001",
+            ts=now,
+            status="processing",
+            desc="Testar modulo snapshot",
+            agent="agente-x",
         )
         _write_journal(str(tmp_path / "journal.jsonl"), [entry])
 
@@ -55,28 +59,46 @@ class TestGenerateSnapshot:
         now = datetime.now(UTC)
         entries = [
             JournalEntry(
-                id="DEM-001", ts=now, status="processing",
-                desc="Ativa 1", agent="agent-1",
+                id="DEM-001",
+                ts=now,
+                status="processing",
+                desc="Ativa 1",
+                agent="agent-1",
             ),
             JournalEntry(
-                id="DEM-002", ts=now, status="delegated",
-                desc="Ativa 2", agent="agent-2",
+                id="DEM-002",
+                ts=now,
+                status="delegated",
+                desc="Ativa 2",
+                agent="agent-2",
             ),
             JournalEntry(
-                id="DEM-003", ts=now, status="completed",
-                desc="Feita 1", summary="Sucesso",
+                id="DEM-003",
+                ts=now,
+                status="completed",
+                desc="Feita 1",
+                summary="Sucesso",
             ),
             JournalEntry(
-                id="DEM-004", ts=now, status="completed",
-                desc="Feita 2", summary="Ok",
+                id="DEM-004",
+                ts=now,
+                status="completed",
+                desc="Feita 2",
+                summary="Ok",
             ),
             JournalEntry(
-                id="DEM-005", ts=now, status="failed",
-                desc="Falhou", summary="Erro X",
+                id="DEM-005",
+                ts=now,
+                status="failed",
+                desc="Falhou",
+                summary="Erro X",
             ),
             JournalEntry(
-                id="DEM-006", ts=now, status="interrupted",
-                desc="Parou", summary="Timeout",
+                id="DEM-006",
+                ts=now,
+                status="interrupted",
+                desc="Parou",
+                summary="Timeout",
             ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
@@ -115,8 +137,11 @@ class TestGenerateSnapshot:
         now = datetime.now(UTC)
         entries = [
             JournalEntry(
-                id="DEM-001", ts=now, status="completed",
-                desc="Feita", summary="Ok",
+                id="DEM-001",
+                ts=now,
+                status="completed",
+                desc="Feita",
+                summary="Ok",
             ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
@@ -131,7 +156,9 @@ class TestGenerateSnapshot:
         now = datetime.now(UTC)
         entries = [
             JournalEntry(
-                id="DEM-001", ts=now, status="processing",
+                id="DEM-001",
+                ts=now,
+                status="processing",
                 desc="Ativa",
             ),
         ]
@@ -160,12 +187,17 @@ class TestGenerateSnapshot:
         now = datetime.now(UTC)
         entries = [
             JournalEntry(
-                id="DEM-001", ts=now, status="processing",
+                id="DEM-001",
+                ts=now,
+                status="processing",
                 desc="Primeiro estado",
             ),
             JournalEntry(
-                id="DEM-001", ts=now, status="completed",
-                desc="Versao final", summary="Done",
+                id="DEM-001",
+                ts=now,
+                status="completed",
+                desc="Versao final",
+                summary="Done",
             ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
@@ -180,12 +212,18 @@ class TestGenerateSnapshot:
         now = datetime.now(UTC)
         entries = [
             JournalEntry(
-                id="DEM-001", ts=now, status="processing",
-                desc="Teste", agent="agente-x",
+                id="DEM-001",
+                ts=now,
+                status="processing",
+                desc="Teste",
+                agent="agente-x",
             ),
             JournalEntry(
-                id="DEM-002", ts=now, status="delegated",
-                desc="Outro", agent="agente-y",
+                id="DEM-002",
+                ts=now,
+                status="delegated",
+                desc="Outro",
+                agent="agente-y",
             ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
@@ -209,8 +247,9 @@ class TestGenerateSnapshot:
         """Pipe chars in descriptions are escaped in tables."""
         now = datetime.now(UTC)
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="processing",
-                         desc="Pipe | test", agent="agente"),
+            JournalEntry(
+                id="DEM-001", ts=now, status="processing", desc="Pipe | test", agent="agente"
+            ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
         result = generate_snapshot(str(tmp_path / "journal.jsonl"))
@@ -221,7 +260,9 @@ class TestGenerateSnapshot:
         now = datetime.now(UTC)
         entries = [
             JournalEntry(
-                id="DEM-001", ts=now, status="processing",
+                id="DEM-001",
+                ts=now,
+                status="processing",
                 desc="Teste",
             ),
         ]
@@ -235,8 +276,9 @@ class TestGenerateSnapshot:
         """Completed table includes summary column with content."""
         now = datetime.now(UTC)
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="completed",
-                         desc="Tarefa", summary="Resumo da tarefa"),
+            JournalEntry(
+                id="DEM-001", ts=now, status="completed", desc="Tarefa", summary="Resumo da tarefa"
+            ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 
@@ -249,7 +291,9 @@ class TestGenerateSnapshot:
         now = datetime.now(UTC)
         entries = [
             JournalEntry(
-                id="DEM-001", ts=now, status="blocked",
+                id="DEM-001",
+                ts=now,
+                status="blocked",
                 desc="Bloqueada",
             ),
         ]
@@ -263,8 +307,9 @@ class TestGenerateSnapshot:
         """Entries without summary show '-' in the completed table."""
         now = datetime.now(UTC)
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="completed",
-                         desc="Tarefa sem resumo", summary=None),
+            JournalEntry(
+                id="DEM-001", ts=now, status="completed", desc="Tarefa sem resumo", summary=None
+            ),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 
@@ -278,8 +323,7 @@ class TestGenerateSnapshot:
         now = datetime.now(UTC)
         long_desc = "A" * 200
         entries = [
-            JournalEntry(id="DEM-001", ts=now, status="processing",
-                         desc=long_desc, agent="agente"),
+            JournalEntry(id="DEM-001", ts=now, status="processing", desc=long_desc, agent="agente"),
         ]
         _write_journal(str(tmp_path / "journal.jsonl"), entries)
 

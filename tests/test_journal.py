@@ -345,7 +345,11 @@ class TestFilterEntries:
         """Combinação de múltiplos filtros."""
         t = datetime(2025, 6, 1, hour=1, tzinfo=UTC)
         result = filter_entries(
-            sample_entries, status="pending,failed", since=t, agent="alpha", limit=1,
+            sample_entries,
+            status="pending,failed",
+            since=t,
+            agent="alpha",
+            limit=1,
         )
         assert len(result) == 1
         assert result[0].id == "c"  # failed + alpha, mais recente

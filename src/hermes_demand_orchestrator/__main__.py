@@ -2,6 +2,7 @@
 CLI principal do Hermes Demand Orchestrator.
 Uso: hermes-orq <comando> [opcoes]
 """
+
 from __future__ import annotations
 
 import argparse
@@ -179,7 +180,7 @@ def cmd_shell_completion(args: argparse.Namespace) -> None:
     """Gera script de shell completion."""
     shell = args.shell
     if shell == "bash":
-        print('''_hermes_orq_completions() {
+        print("""_hermes_orq_completions() {
     local words cword
     words=("${COMP_WORDS[@]}")
     cword=$COMP_CWORD
@@ -189,15 +190,15 @@ def cmd_shell_completion(args: argparse.Namespace) -> None:
     esac
 }
 complete -F _hermes_orq_completions hermes-orq
-''')
+""")
     elif shell == "zsh":
-        print('''#compdef hermes-orq
+        print("""#compdef hermes-orq
 _hermes_orq() {
     local state
     _arguments '1: :(status list preflight route register archive snapshot search filter)'
 }
 _hermes_orq
-''')
+""")
     else:
         print(f"Shell '{shell}' não suportado. Use bash ou zsh.")
 
@@ -230,8 +231,12 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Hermes Demand Orchestrator — orquestração de demandas",
     )
-    parser.add_argument("--journal", "-j", default="~/.hermes/demanda-journal.jsonl",
-                        help="Caminho do journal (default: ~/.hermes/demanda-journal.jsonl)")
+    parser.add_argument(
+        "--journal",
+        "-j",
+        default="~/.hermes/demanda-journal.jsonl",
+        help="Caminho do journal (default: ~/.hermes/demanda-journal.jsonl)",
+    )
     sub = parser.add_subparsers(dest="command", required=True)
 
     # status

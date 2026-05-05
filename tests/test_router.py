@@ -1,4 +1,5 @@
 """Tests for the Router module — multi-project detection by keywords."""
+
 from __future__ import annotations
 
 import pytest
@@ -32,9 +33,7 @@ class TestDetectProject:
         """Hermes Terminal keywords should detect hermes-terminal."""
         assert detect_project("hermes terminal") == "hermes-terminal"
         assert detect_project("terminal app") == "hermes-terminal"
-        assert detect_project("dashboard de monitoramento") == (
-            "hermes-terminal"
-        )
+        assert detect_project("dashboard de monitoramento") == ("hermes-terminal")
         assert detect_project("chat bot") == "hermes-terminal"
 
     def test_detect_hermes_agent_soul(self) -> None:
@@ -57,19 +56,11 @@ class TestDetectProject:
 
     def test_detect_hermes_orchestrator(self) -> None:
         """Orchestrator keywords should detect hermes-demand-orchestrator."""
-        assert detect_project("orquestrador de demandas") == (
-            "hermes-demand-orchestrator"
-        )
+        assert detect_project("orquestrador de demandas") == ("hermes-demand-orchestrator")
         assert detect_project("orchestrator") == "hermes-demand-orchestrator"
-        assert detect_project("demanda urgente") == (
-            "hermes-demand-orchestrator"
-        )
-        assert detect_project("demand pipeline") == (
-            "hermes-demand-orchestrator"
-        )
-        assert detect_project("write-ahead log") == (
-            "hermes-demand-orchestrator"
-        )
+        assert detect_project("demanda urgente") == ("hermes-demand-orchestrator")
+        assert detect_project("demand pipeline") == ("hermes-demand-orchestrator")
+        assert detect_project("write-ahead log") == ("hermes-demand-orchestrator")
         assert detect_project("cascade") == "hermes-demand-orchestrator"
         assert detect_project("journal") == "hermes-demand-orchestrator"
 

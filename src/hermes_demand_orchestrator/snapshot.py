@@ -4,6 +4,7 @@ Módulo Snapshot — Gerador de snapshots legíveis do journal.
 Produz um relatório markdown com o estado atual de todas as demandas,
 agrupadas por status.
 """
+
 from __future__ import annotations
 
 from datetime import UTC, datetime

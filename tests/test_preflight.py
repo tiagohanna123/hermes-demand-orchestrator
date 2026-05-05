@@ -48,9 +48,7 @@ class TestCascadeKeywords:
 
     # Deep keywords also appear in CASCADE_KEYWORDS, so test only
     # keywords that are *exclusively* cascade (not in deep list).
-    EXCLUSIVE_CASCADE = sorted(
-        set(CASCADE_KEYWORDS) - set(CASCADE_DEEP_KEYWORDS)
-    )
+    EXCLUSIVE_CASCADE = sorted(set(CASCADE_KEYWORDS) - set(CASCADE_DEEP_KEYWORDS))
 
     @pytest.mark.parametrize("keyword", EXCLUSIVE_CASCADE)
     def test_each_cascade_keyword(self, keyword: str) -> None:

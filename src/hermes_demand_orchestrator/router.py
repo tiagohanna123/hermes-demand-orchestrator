@@ -4,6 +4,7 @@ Módulo Router — Roteamento multi-projeto por keywords.
 Detecta a qual projeto uma demanda pertence baseado em
 palavras-chave na descrição.
 """
+
 from __future__ import annotations
 
 import re
@@ -12,6 +13,7 @@ from typing import NamedTuple
 
 class ProjectRule(NamedTuple):
     """Regra de detecção de projeto."""
+
     name: str
     keywords: list[str]
     path: str | None = None
@@ -44,8 +46,7 @@ PROJECTS: list[ProjectRule] = [
     ProjectRule("hermes-broker", ["hermes broker", "message broker", "fila"], "~/hermes-broker"),
     ProjectRule(
         "hermes-demand-orchestrator",
-        ["orquestrador", "orchestrator", "demanda", "demand",
-         "write-ahead", "cascade", "journal"],
+        ["orquestrador", "orchestrator", "demanda", "demand", "write-ahead", "cascade", "journal"],
         "~/hermes-demand-orchestrator",
     ),
 ]
@@ -62,7 +63,7 @@ def detect_project(description: str) -> str | None:
 
     for project in PROJECTS:
         for kw in project.keywords:
-            if re.search(r'\b' + re.escape(kw) + r'\b', desc_lower):
+            if re.search(r"\b" + re.escape(kw) + r"\b", desc_lower):
                 score = len(kw)
                 if score > best_match[0]:
                     best_match = (score, project.name)

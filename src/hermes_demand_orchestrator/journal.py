@@ -4,6 +4,7 @@ Módulo Journal — Write-Ahead Log append-only.
 Gerencia o arquivo JSONL que registra todas as demandas
 antes de qualquer processamento. Append-only = O(1) sempre.
 """
+
 from __future__ import annotations
 
 import json
@@ -17,6 +18,7 @@ from typing import Any
 @dataclass
 class JournalEntry:
     """Uma entrada no write-ahead log."""
+
     id: str
     ts: datetime
     status: str
