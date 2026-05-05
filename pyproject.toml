@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "hermes-demand-orchestrator"
-version = "0.2.0"
+version = "0.2.1"
 description = "Orquestrador de Demandas — write-ahead log, swarm cascade, preflight classifier, multi-project router"
 readme = "README.md"
 license = "MIT"
